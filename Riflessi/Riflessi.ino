@@ -14,16 +14,17 @@ void setup() {
 void loop() {
  delay(d);
  digitalWrite(LED, HIGH);
- tempo=millis();
  while (digitalRead(pulsante) == LOW);
  digitalWrite(LED, LOW);
  while (digitalRead(pulsante) == HIGH);
- stampa=millis()-tempo;
- lcd.setCursor(0,0);
- lcd.print(stampa);
  delay(d);
  tone(buzzer, 1000, 5000);
+  tempo=millis();
  while (digitalRead(pulsante) == LOW);
  noTone(buzzer);
+  stampa=millis()-tempo;
+ lcd.setCursor(0,0);
+ lcd.print(stampa);
  while (digitalRead(pulsante) == HIGH);
 }
+//premere la prima volta il pulsante per far partire la prova, al suono ripremere il pulsante per misurare i riflessi.
